@@ -34,17 +34,17 @@ const person: Person = {
 }
 
 fact.factorial(10); // 3628800
-fact.factorial(10); // 3628800, cache hitted 10 times
-fact.factorial(15); // 1307674368000, cache hitted 10 times
+fact.factorial(10); // 3628800, cache hitted 1 time for factorial(10) and returned 3628800
+fact.factorial(15); // 1307674368000, cache hitted 1 time for factorial(10) and returned 3628800
 
-fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache for fact.factorial hitted 10 times
+fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache hitted 1 time for factorial(10) and returned 3628800
 fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache for fact.getFactorialOfPersonAgeMinusSomething hitted 1 time
 
 person.age = 12;
 
-fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 479001590, cache for fact.factorial hitted 12 times
+fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 479001590, cache hitted 1 time for factorial(12) and returned 479001600
 fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 479001590, cache for fact.getFactorialOfPersonAgeMinusSomething hitted 1 time
-fact.getFactorialOfPersonAgeMinusSomething(person, 20) // 479001580, cache for fact.factorial hitted 12 times 
+fact.getFactorialOfPersonAgeMinusSomething(person, 20) // 479001580, cache hitted 1 time for factorial(12) and returned 479001600
 ```
 
 # Comparision with standard lodash memoize function/decorator
@@ -75,10 +75,10 @@ const person: Person = {
 }
 
 fact.factorial(10); // 3628800
-fact.factorial(10); // 3628800, cache hitted 10 times
-fact.factorial(15); // 1307674368000, cache hitted 10 times
+fact.factorial(10); // 3628800, cache hitted 1 time for factorial(10) and returned 3628800
+fact.factorial(15); // 1307674368000, cache hitted 1 time for factorial(10) and returned 3628800
 
-fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache for fact.factorial hitted 10 times
+fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache hitted 1 time for factorial(10) and returned 3628800
 fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache for fact.getFactorialOfPersonAgeMinusSomething hitted 1 time
 
 person.age = 12;
