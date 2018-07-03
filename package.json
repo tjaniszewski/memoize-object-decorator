@@ -1,6 +1,6 @@
 {
   "name": "memoize-object-decorator",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A decorator that overwrites lodash memoize decorator to reflect changes in objects' values and to include other function parameters than first while chackin if something has been changed in passed arguments",
   "main": "dist/index.js",
   "scripts": {
