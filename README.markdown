@@ -8,6 +8,8 @@ A decorator returns memoized function which compares objects and arrays by value
 
 # Usage
 ```typescript
+import { MemoizeObject } from 'memoize-object-decorator';
+
 interface Person {
     name: string;
     age: number;
@@ -47,6 +49,8 @@ fact.getFactorialOfPersonAgeminusSomething(person, 20) // 479001580, cache for f
 
 # Comparision with standard lodash memoize function/decorator
 ```typescript
+import { Memoize } from 'lodash-decorators';
+
 interface Person {
     name: string;
     age: number;
