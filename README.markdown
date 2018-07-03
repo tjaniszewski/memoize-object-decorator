@@ -27,8 +27,8 @@ class SomeClass {
   }
 }
 
-const fact = new SomeClass();
-const person = {
+const fact: SomeClass = new SomeClass();
+const person: Person = {
     name: "John Doe",
     age: 10
 }
@@ -68,8 +68,8 @@ class SomeClass {
   }
 }
 
-const fact = new SomeClass();
-const person = {
+const fact: SomeClass = new SomeClass();
+const person: Person = {
     name: "John Doe",
     age: 10
 }
