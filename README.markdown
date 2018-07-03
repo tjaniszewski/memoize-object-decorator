@@ -22,7 +22,7 @@ class SomeClass {
   }
 
   @MemoizeObject()
-  getFactorialOfPersonAgeminusSomething(obj: Person, somethingToSubtract: number): number {
+  getFactorialOfPersonAgeMinusSomething(obj: Person, somethingToSubtract: number): number {
       return this.factorial(obj.age) - somethingToSubtract;
   }
 }
@@ -37,14 +37,14 @@ fact.factorial(10); // 3628800
 fact.factorial(10); // 3628800, cache hitted 10 times
 fact.factorial(15); // 1307674368000, cache hitted 10 times
 
-fact.getFactorialOfPersonAgeminusSomething(person, 10) // 3628790, cache for fact.factorial hitted 10 times
-fact.getFactorialOfPersonAgeminusSomething(person, 10) // 3628790, cache for fact.getFactorialOfPersonAgeminusSomething hitted 1 time
+fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache for fact.factorial hitted 10 times
+fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache for fact.getFactorialOfPersonAgeMinusSomething hitted 1 time
 
 person.age = 12;
 
-fact.getFactorialOfPersonAgeminusSomething(person, 10) // 479001590, cache for fact.factorial hitted 12 times
-fact.getFactorialOfPersonAgeminusSomething(person, 10) // 479001590, cache for fact.getFactorialOfPersonAgeminusSomething hitted 1 time
-fact.getFactorialOfPersonAgeminusSomething(person, 20) // 479001580, cache for fact.factorial hitted 12 times 
+fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 479001590, cache for fact.factorial hitted 12 times
+fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 479001590, cache for fact.getFactorialOfPersonAgeMinusSomething hitted 1 time
+fact.getFactorialOfPersonAgeMinusSomething(person, 20) // 479001580, cache for fact.factorial hitted 12 times 
 ```
 
 # Comparision with standard lodash memoize function/decorator
@@ -63,7 +63,7 @@ class SomeClass {
   }
 
   @Memoize()
-  getFactorialOfPersonAgeminusSomething(obj: Person, somethingToSubtract: number): number {
+  getFactorialOfPersonAgeMinusSomething(obj: Person, somethingToSubtract: number): number {
       return this.factorial(obj.age) - somethingToSubtract;
   }
 }
@@ -78,14 +78,14 @@ fact.factorial(10); // 3628800
 fact.factorial(10); // 3628800, cache hitted 10 times
 fact.factorial(15); // 1307674368000, cache hitted 10 times
 
-fact.getFactorialOfPersonAgeminusSomething(person, 10) // 3628790, cache for fact.factorial hitted 10 times
-fact.getFactorialOfPersonAgeminusSomething(person, 10) // 3628790, cache for fact.getFactorialOfPersonAgeminusSomething hitted 1 time
+fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache for fact.factorial hitted 10 times
+fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache for fact.getFactorialOfPersonAgeMinusSomething hitted 1 time
 
 person.age = 12;
 
-fact.getFactorialOfPersonAgeminusSomething(person, 10) // 3628790, cache for fact.getFactorialOfPersonAgeminusSomething hitted 1 time
-fact.getFactorialOfPersonAgeminusSomething(person, 10) // 3628790, cache for fact.getFactorialOfPersonAgeminusSomething hitted 1 time
-fact.getFactorialOfPersonAgeminusSomething(person, 20) // 3628790, cache for fact.getFactorialOfPersonAgeminusSomething hitted 1 time
+fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache for fact.getFactorialOfPersonAgeMinusSomething hitted 1 time
+fact.getFactorialOfPersonAgeMinusSomething(person, 10) // 3628790, cache for fact.getFactorialOfPersonAgeMinusSomething hitted 1 time
+fact.getFactorialOfPersonAgeMinusSomething(person, 20) // 3628790, cache for fact.getFactorialOfPersonAgeMinusSomething hitted 1 time
 ```
 
 # What's going on under the hood?
