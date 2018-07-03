@@ -1,7 +1,7 @@
-**MemoizeObject** is a decorator which memoize functions and methods using their value checksum as a cache key instead of reference ID.
+**MemoizeObject** is a decorator which memoize methods using their value checksum as a cache key instead of reference ID.
 
 # memoize-object-decorator
-A decorator returns memoized function which compares objects and arrays by value.
+A decorator returns memoized method which compares objects and arrays by value.
 
 # Installation
 `npm i memoize-object-decorator`
@@ -89,7 +89,7 @@ fact.getFactorialOfPersonAgeMinusSomething(person, 20) // 3628790, cache for fac
 ```
 
 # What's going on under the hood?
-The decorator takes all of the arguments of memoized function and calculates their unique SHA1 hash which is used as a Map key for cache.<br>
+The decorator takes all of the arguments of memoized method and calculates their unique SHA1 hash which is used as a Map key for cache.<br>
 In this way we can track objects and arrays by their values instead of the reference. 
 
 # Important
