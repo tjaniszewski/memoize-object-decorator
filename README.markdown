@@ -1,4 +1,4 @@
-**MemoizeObject** is a decorator which memoize functions and methods using their value as a cache key instead of reference ID.
+**MemoizeObject** is a decorator which memoize functions and methods using their value checksum as a cache key instead of reference ID.
 
 # memoize-object-decorator
 A decorator returns memoized function which compares objects and arrays by value.
