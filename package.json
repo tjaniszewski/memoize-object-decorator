@@ -32,5 +32,12 @@
     "package.json",
     "README.markdown",
     "LICENSE"
+  ],
+  "keywords": [
+    "memoize",
+    "object",
+    "decorator",
+    "typescript",
+    "memoization"
   ]
 }
