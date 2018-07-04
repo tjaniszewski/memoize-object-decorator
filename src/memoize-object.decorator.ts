@@ -12,11 +12,13 @@ export function MemoizeObject(): Function {
     descriptor.value = memoize(function(...args: any[]) {
       return originalMethod.apply(this, args);
     }, (...args: any[]) => {
-      const startTime = Date.now();
-      const sha1Hash = sha1(args);
-      const stopTime = Date.now();
+      const MAX_EXECUTION_TIME: number = 5000;
+      const startTime: number = Date.now();
+      const sha1Hash: string = sha1(args);
+      const stopTime: number = Date.now();
+      const executionTime: number = stopTime - startTime;
 
-      if(stopTime - startTime >= 5000) {
+      if(executionTime > MAX_EXECUTION_TIME) {
         console.warn(`@MemoizeObject() decorator for ${key.toString()} method is running for too long (above 5000ms)`);
       }
 
