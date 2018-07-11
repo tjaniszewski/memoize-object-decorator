@@ -14,7 +14,7 @@ export function MemoizeObject(): Function {
     }, (...args: any[]) => {
       const MAX_EXECUTION_TIME: number = 200;
       const startTime: number = Date.now();
-      const sha1Hash: string = sha1(args);
+      const sha1Hash: string = sha1(JSON.stringify(args));
       const stopTime: number = Date.now();
       const executionTime: number = stopTime - startTime;
 
