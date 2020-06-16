@@ -4,7 +4,7 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "target": "esnext",
+    "target": "es5",
     "sourceMap": true,
     "declaration": true,
     "emitDecoratorMetadata": true,
