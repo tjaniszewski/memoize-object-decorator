@@ -21,7 +21,7 @@ class SomeClass {
     return (num <= 1) ? 1 : num * this.factorial(--num);  
   }
 
-  @MemoizeObject()
+  @MemoizeObject() // for circular structures @MemoizeObject({circular: true})
   getFactorialOfPersonAgeMinusSomething(obj: Person, somethingToSubtract: number): number {
       return this.factorial(obj.age) - somethingToSubtract;
   }
