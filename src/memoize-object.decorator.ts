@@ -1,7 +1,11 @@
 import { memoize } from 'lodash';
 import { sha1 } from 'object-hash';
 
-export function MemoizeObject(): Function {
+import { circularReplacer } from './utils';
+
+const MAX_EXECUTION_TIME: number = 200;
+
+export function MemoizeObject({circular}: {circular?: boolean} = {}): Function {
   return function(target: Object, key: string | symbol, descriptor: PropertyDescriptor): PropertyDescriptor {
     if(descriptor === undefined) {
       descriptor = Object.getOwnPropertyDescriptor(target, key);
@@ -11,10 +15,9 @@ export function MemoizeObject(): Function {
   
     descriptor.value = memoize(function(...args: any[]) {
       return originalMethod.apply(this, args);
-    }, (...args: any[]) => {
-      const MAX_EXECUTION_TIME: number = 200;
+    }, (...args: any[]): string => {
       const startTime: number = Date.now();
-      const sha1Hash: string = sha1(JSON.stringify(args));
+      const hash: string = sha1(JSON.stringify(args, circular ? circularReplacer() : null));
       const stopTime: number = Date.now();
       const executionTime: number = stopTime - startTime;
 
@@ -22,7 +25,7 @@ export function MemoizeObject(): Function {
         console.warn(`@MemoizeObject() decorator for ${key.toString()} method is running for too long (above ${MAX_EXECUTION_TIME}ms)`);
       }
 
-      return sha1Hash;
+      return hash;
     });
     
     return descriptor;
